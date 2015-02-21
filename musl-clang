@@ -44,6 +44,8 @@ then
 	TAIL="${TAIL} ${PREFIX}/lib/crti.o"
 	TAIL="${TAIL} ${PREFIX}/lib/crtn.o"
 	TAIL="${TAIL} -lc"
+	# you might want this
+	#TAIL="${TAIL} -lcompiler_rt"
 fi
 
 exec ${CLANG} ${ARGS} "$@" ${TAIL}
