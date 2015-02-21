@@ -46,5 +46,5 @@ then
 	TAIL="${TAIL} -lc"
 fi
 
-${CLANG} ${ARGS} "$@" ${TAIL}
+exec ${CLANG} ${ARGS} "$@" ${TAIL}
 
