@@ -35,6 +35,8 @@ if [ ! -d "${PREFIX}" ]; then
 	return 1
 fi
 
+CLANG=${REALCLANG:-"clang"}
+
 hasNo() {
 	pat="$1"
 	shift 1
@@ -65,5 +67,5 @@ then
 	TAIL="${TAIL} -lc"
 fi
 
-clang ${ARGS} "$@" ${TAIL}
+${CLANG} ${ARGS} "$@" ${TAIL}
 
