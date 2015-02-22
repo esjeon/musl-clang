@@ -37,7 +37,7 @@ if \
 	hasNo '-E' "$@"
 then
 	ARGS="${ARGS} -nostdlib"
-	ARGS="${ARGS} -Wl,-dynamic-linker ${PREFIX}/lib/libc.so"
+	ARGS="${ARGS} -Wl,-dynamic-linker=${PREFIX}/lib/libc.so"
 	ARGS="${ARGS} -L${PREFIX}/lib"
 
 	TAIL="${TAIL} ${PREFIX}/lib/crt1.o"
