@@ -56,5 +56,7 @@ then
 	fi
 fi
 
+#echo "# $0" "$@" >&2
+#set -x
 exec ${CLANG} ${ARGS} "$@" ${TAIL}
 
