@@ -39,9 +39,9 @@ then
 	ARGS="${ARGS} -nostdlib"
 	ARGS="${ARGS} -Wl,-dynamic-linker=${PREFIX}/lib/libc.so"
 	ARGS="${ARGS} -L${PREFIX}/lib"
+	ARGS="${ARGS} ${PREFIX}/lib/crt1.o"
+	ARGS="${ARGS} ${PREFIX}/lib/crti.o"
 
-	TAIL="${TAIL} ${PREFIX}/lib/crt1.o"
-	TAIL="${TAIL} ${PREFIX}/lib/crti.o"
 	TAIL="${TAIL} ${PREFIX}/lib/crtn.o"
 	TAIL="${TAIL} -lc"
 	# you might want this
