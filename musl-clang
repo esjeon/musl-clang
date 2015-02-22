@@ -39,6 +39,7 @@ then
 	ARGS="${ARGS} -nostdlib"
 	ARGS="${ARGS} -Wl,-dynamic-linker=${PREFIX}/lib/libc.so"
 	ARGS="${ARGS} -L${PREFIX}/lib"
+	#ARGS="${ARGS} -Wl,-rpath=${PREFIX}/lib"
 	ARGS="${ARGS} ${PREFIX}/lib/crt1.o"
 	ARGS="${ARGS} ${PREFIX}/lib/crti.o"
 
