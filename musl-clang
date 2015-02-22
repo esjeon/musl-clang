@@ -51,6 +51,7 @@ then
 	fi
 
 	if hasNo '-nostdlib' "$@"; then
+		#TAIL="${TAIL} -Wl,-Bstatic"
 		TAIL="${TAIL} -lc"
 		#TAIL="${TAIL} -lcompiler_rt"
 	fi
