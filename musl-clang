@@ -28,8 +28,12 @@ hasNo() {
 	return 0
 }
 
-ARGS="-nostdinc -isystem ${PREFIX}/include"
+ARGS="-nostdinc"
 TAIL=""
+
+if hasNo '-nostdinc' "$@"; then
+	ARGS="${ARGS} -isystem ${PREFIX}/include"
+fi
 
 if \
 	hasNo '-c' "$@" && \
