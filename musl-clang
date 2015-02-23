@@ -58,7 +58,7 @@ then
 	if hasNo '-nostdlib' "$@" && \
 	   hasNo '-nodefaultlibs' "$@"
 		TAIL="${TAIL} -lc"
-		#TAIL="${TAIL} -lcompiler_rt"
+		#TAIL="${TAIL} -Wl,-Bstatic -lcompiler_rt"
 	fi
 fi
 
