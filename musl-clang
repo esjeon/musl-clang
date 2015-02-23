@@ -14,7 +14,16 @@ if [ ! -d "${PREFIX}" ]; then
 	return 1
 fi
 
-CLANG=${REALCLANG:-"clang"}
+CPP=no
+case "$0" in
+	*++) CPP=yes ;;
+esac
+
+if [ "${CPP}" == "yes" ]; then
+	CLANG=${REALCLANGPP:-"clang++"}
+else
+	CLANG=${REALCLANG:-"clang"}
+fi
 
 hasNo() {
 	pat="$1"
@@ -58,6 +67,11 @@ then
 	if hasNo '-nostdlib' "$@" && \
 	   hasNo '-nodefaultlibs' "$@"
 	then
+		if [ "${CPP}" == "yes" ]; then
+			TAIL="${TAIL} -lc++"
+			TAIL="${TAIL} -lunwind"
+			TAIL="${TAIL} -lm"
+		fi
 		TAIL="${TAIL} -lc"
 		#TAIL="${TAIL} -Wl,-Bstatic -lcompiler_rt"
 	fi
