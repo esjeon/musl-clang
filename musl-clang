@@ -46,7 +46,8 @@ then
 	#ARGS="${ARGS} -Wl,-rpath=${PREFIX}/lib"
 
 	if hasNo '-nostartfiles' "$@" && \
-	   hasNo '-nostdlib' "$@"
+	   hasNo '-nostdlib' "$@" && \
+	   hasNo '-nodefaultlibs' "$@"
 	then
 		ARGS="${ARGS} ${PREFIX}/lib/crt1.o"
 		ARGS="${ARGS} ${PREFIX}/lib/crti.o"
@@ -54,7 +55,8 @@ then
 		TAIL="${TAIL} ${PREFIX}/lib/crtn.o"
 	fi
 
-	if hasNo '-nostdlib' "$@"; then
+	if hasNo '-nostdlib' "$@" && \
+	   hasNo '-nodefaultlibs' "$@"
 		#TAIL="${TAIL} -Wl,-Bstatic"
 		TAIL="${TAIL} -lc"
 		#TAIL="${TAIL} -lcompiler_rt"
