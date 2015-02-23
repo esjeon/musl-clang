@@ -19,7 +19,7 @@ case "$0" in
 	*++) CPP=yes ;;
 esac
 
-if [ "${CPP}" == "yes" ]; then
+if [ "${CPP}" = "yes" ]; then
 	CLANG=${REALCLANGPP:-"clang++"}
 else
 	CLANG=${REALCLANG:-"clang"}
@@ -67,7 +67,7 @@ then
 	if hasNo '-nostdlib' "$@" && \
 	   hasNo '-nodefaultlibs' "$@"
 	then
-		if [ "${CPP}" == "yes" ]; then
+		if [ "${CPP}" = "yes" ]; then
 			TAIL="${TAIL} -lc++"
 			TAIL="${TAIL} -lunwind"
 			TAIL="${TAIL} -lm"
